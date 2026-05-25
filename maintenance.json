@@ -1,5 +1,12 @@
 {
-  "updated_at": "Not updated yet",
+  "updated_at": "2026-05-25T11:40:23.541925+00:00",
   "source": "https://company.meralco.com.ph/news-and-advisories/maintenance-schedule",
-  "items": []
+  "items": [
+    {
+      "title": "Test Meralco Maintenance Schedule",
+      "date": "Sample date",
+      "location": "Sample location",
+      "url": "https://company.meralco.com.ph/news-and-advisories/maintenance-schedule"
+    }
+  ]
 }
