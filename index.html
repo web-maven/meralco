@@ -13,31 +13,27 @@
 
   <script>
     async function loadSchedule() {
-      try {
-        const response = await fetch("maintenance.json?cache=" + Date.now());
-        const data = await response.json();
+      const response = await fetch("maintenance.json?cache=" + Date.now());
+      const data = await response.json();
 
-        const status = document.getElementById("status");
-        const list = document.getElementById("list");
+      const status = document.getElementById("status");
+      const list = document.getElementById("list");
 
-        if (!data.items || data.items.length === 0) {
-          status.innerHTML = "No maintenance schedules found yet.";
-          return;
-        }
-
-        status.innerHTML = "Last updated: " + data.updated_at;
-
-        list.innerHTML = data.items.map(item => `
-          <div style="border:1px solid #ddd; padding:16px; margin:16px 0;">
-            <h2>${item.title}</h2>
-            <p><strong>Date:</strong> ${item.date}</p>
-            <p><strong>Location:</strong> ${item.location}</p>
-            <p><a href="${item.url}" target="_blank">View Meralco source</a></p>
-          </div>
-        `).join("");
-      } catch (error) {
-        document.getElementById("status").innerHTML = "Could not load schedule data.";
+      if (!data.items || data.items.length === 0) {
+        status.innerHTML = "No maintenance schedules found yet.";
+        return;
       }
+
+      status.innerHTML = "Last updated: " + data.updated_at;
+
+      list.innerHTML = data.items.map(item => `
+        <div style="border:1px solid #ddd; padding:16px; margin:16px 0;">
+          <h2>${item.title}</h2>
+          <p><strong>Date:</strong> ${item.date}</p>
+          <p><strong>Location:</strong> ${item.location}</p>
+          <p><a href="${item.url}" target="_blank">View Meralco source</a></p>
+        </div>
+      `).join("");
     }
 
     loadSchedule();
