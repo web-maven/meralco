@@ -1,3 +1,4 @@
+print("SCRAPER WORKING")
 import json
 import re
 from datetime import datetime, timezone
